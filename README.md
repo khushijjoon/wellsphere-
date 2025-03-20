@@ -1,2 +1,2 @@
 # wellsphere-
-healtcare website with assistant chatbot 
+healthcare website with assistant chatbot 
