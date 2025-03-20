@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Emergency Button</title>
+    <link rel="stylesheet" href="major.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Healthcare Service</h1>
+        <p>If you have an emergency, please click the button below:</p>
+        <button id="emergencyButton" onclick="handleEmergency()">Emergency Care</button>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2>Emergency Care</h2>
+                <p>Please stay calm. Help is on the way.</p>
+                <p>Call <strong>112</strong> immediately if you are in serious danger.</p>
+                <button onclick="location.href='tel:112'">Call 112</button>
+            </div>
+        </div>
+    </div>
+    <script src="minor.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Online Pharmacy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f4fb;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-container input {
+            padding: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .categories {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .category {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+            width: 22%;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+            width: 22%;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .product h3 {
+            color: #0056b3;
+        }
+        .product p {
+            color: #555;
+        }
+        .product button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Our Indian Online Pharmacy</h1>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search for medicines, healthcare products...">
+    </div>
+
+    <div class="categories">
+        <div class="category">Medicines</div>
+        <div class="category">Healthcare Products</div>
+        <div class="category">Vitamins & Supplements</div>
+        <div class="category">Personal Care</div>
+    </div>
+
+    <div class="products">
+        <!-- Product cards with local images -->
+        <div class="product" id="product1">
+            <img src="paracetamol.jpg" alt="Paracetamol">
+            <h3>Paracetamol</h3>
+            <p>₹50.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product2">
+            <img src="benadryl.jpg" alt="Cough Syrup">
+            <h3>Cough Syrup</h3>
+            <p>₹120.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product3">
+            <img src="vitaminc.jpg" alt="Vitamin C Tablets">
+            <h3>Vitamin C Tablets</h3>
+            <p>₹250.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product4">
+            <img src="sanitizer.jpg" alt="Hand Sanitizer">
+            <h3>Hand Sanitizer</h3>
+            <p>₹80.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product5">
+            <img src="balm.jpg" alt="Pain Relief Balm">
+            <h3>Pain Relief Balm</h3>
+            <p>₹45.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product6">
+            <img src="antiseptic.jpg" alt="Antiseptic Cream">
+            <h3>Antiseptic Cream</h3>
+            <p>₹75.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product7">
+            <img src="multi.jpg" alt="Multivitamin Capsules">
+            <h3>Multivitamin Capsules</h3>
+            <p>₹300.00</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="product" id="product8">
+            <img src="facemask.jpg" alt="Face Mask">
+            <h3>Face Mask</h3>
+            <p>₹150.00</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('search').addEventListener('input', function() {
+        let filter = this.value.toLowerCase();
+        let products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            let productName = product.querySelector('h3').textContent.toLowerCase();
+            if (productName.includes(filter)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

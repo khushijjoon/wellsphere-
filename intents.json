@@ -1,0 +1,167 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "Hi there",
+        "Hello there",
+        "Hey there"
+      ],
+      "responses": [
+        "Hello! How can I assist you today?",
+        "Hi! What symptoms are you experiencing?",
+        "Hey! How can I help you today?",
+        "Hello! What brings you here today?"
+      ]
+    },
+    {
+      "tag": "fever",
+      "patterns": [
+        "Do you have a fever?",
+        "Are you running a temperature?",
+        "Is your body temperature high?"
+      ],
+      "responses": [
+        "Fever can be a sign of many illnesses. How long have you had a fever?",
+        "Having a fever is common with infections. Do you have any other symptoms?"
+      ]
+    },
+    {
+      "tag": "cough",
+      "patterns": [
+        "Do you have a cough?",
+        "Are you coughing?",
+        "Have you been coughing?"
+      ],
+      "responses": [
+        "Coughing can be due to a cold, flu, or other conditions. Is it a dry or wet cough?",
+        "How long have you had this cough? Do you have a sore throat or any other symptoms?"
+      ]
+    },
+    {
+      "tag": "shortness_of_breath",
+      "patterns": [
+        "Are you experiencing shortness of breath?",
+        "Do you feel breathless?",
+        "Is it hard to breathe?"
+      ],
+      "responses": [
+        "Shortness of breath can be serious. Are you experiencing chest pain as well?",
+        "How severe is your shortness of breath? Do you have any other symptoms?"
+      ]
+    },
+    {
+      "tag": "sore_throat",
+      "patterns": [
+        "Do you have a sore throat?",
+        "Is your throat sore?",
+        "Are you experiencing throat pain?"
+      ],
+      "responses": [
+        "A sore throat can be a sign of a cold or strep throat. Do you have a fever or cough?",
+        "How long have you had a sore throat? Do you have any other symptoms like a cough or fever?"
+      ]
+    },
+    {
+      "tag": "headache",
+      "patterns": [
+        "Do you have a headache?",
+        "Are you having headaches?",
+        "Is your head hurting?"
+      ],
+      "responses": [
+        "Headaches can be caused by many factors, including stress or migraines. How severe is your headache?",
+        "Do you have any other symptoms along with the headache, like nausea or vision changes?"
+      ]
+    },
+    {
+      "tag": "fatigue",
+      "patterns": [
+        "Are you experiencing fatigue?",
+        "Do you feel tired?",
+        "Are you feeling fatigued?"
+      ],
+      "responses": [
+        "Fatigue can be a symptom of many conditions, including infections or stress. How long have you been feeling this way?",
+        "Are you experiencing any other symptoms along with fatigue, like fever or body aches?"
+      ]
+    },
+    {
+      "tag": "muscle_aches",
+      "patterns": [
+        "Do you have muscle or body aches?",
+        "Are your muscles sore?",
+        "Do you feel body aches?"
+      ],
+      "responses": [
+        "Muscle aches can be related to the flu or physical exertion. Do you have a fever or fatigue?",
+        "How long have you been experiencing muscle aches? Do you have any other symptoms?"
+      ]
+    },
+    {
+      "tag": "runny_nose",
+      "patterns": [
+        "Do you have a runny nose?",
+        "Is your nose running?",
+        "Are you experiencing a runny nose?"
+      ],
+      "responses": [
+        "A runny nose is common with colds and allergies. Do you have a cough or sore throat?",
+        "How long have you had a runny nose? Do you have any other symptoms like sneezing or congestion?"
+      ]
+    },
+    {
+      "tag": "nausea",
+      "patterns": [
+        "Are you experiencing nausea?",
+        "Do you feel nauseous?",
+        "Are you feeling like vomiting?"
+      ],
+      "responses": [
+        "Nausea can be caused by various issues, including infections or food poisoning. Do you have any other symptoms like vomiting or diarrhea?",
+        "How long have you been feeling nauseous? Are you experiencing any other symptoms?"
+      ]
+    },
+    {
+      "tag": "diarrhea",
+      "patterns": [
+        "Do you have diarrhea?",
+        "Are you experiencing diarrhea?",
+        "Are you having loose stools?"
+      ],
+      "responses": [
+        "Diarrhea can be due to infections or dietary issues. Are you also experiencing nausea or stomach cramps?",
+        "How long have you had diarrhea? Do you have any other symptoms like fever or dehydration?"
+      ]
+    }
+  ],
+  "diseases": [
+    {
+      "name": "Common Cold",
+      "symptoms": ["cough", "sore_throat", "runny_nose"]
+    },
+    {
+      "name": "Flu",
+      "symptoms": ["fever", "cough", "sore_throat", "muscle_aches", "fatigue"]
+    },
+    {
+      "name": "COVID-19",
+      "symptoms": ["fever", "cough", "shortness_of_breath", "fatigue", "muscle_aches"]
+    },
+    {
+      "name": "Strep Throat",
+      "symptoms": ["sore_throat", "fever", "headache", "nausea"]
+    },
+    {
+      "name": "Migraine",
+      "symptoms": ["headache", "nausea", "fatigue"]
+    },
+    {
+      "name": "Gastroenteritis",
+      "symptoms": ["nausea", "vomiting", "diarrhea"]
+    }
+  ]
+}

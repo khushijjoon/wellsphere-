@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0e7f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .section h2 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px -20px;
+            font-size: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input, .input-group button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .input-group button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .input-group button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            font-size: 16px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Health Tracker
+</header>
+
+<div class="container">
+    <!-- BMI Calculator Section -->
+    <div class="section">
+        <h2>BMI Calculator</h2>
+        <div class="input-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight">
+        </div>
+        <div class="input-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height">
+        </div>
+        <div class="input-group">
+            <button onclick="calculateBMI()">Calculate BMI</button>
+        </div>
+        <div class="input-group">
+            <label for="bmi">Your BMI:</label>
+            <input type="text" id="bmi" readonly>
+        </div>
+    </div>
+
+    <!-- Vaccination Dates Section -->
+    <div class="section">
+        <h2>Vaccination Dates</h2>
+        <div class="input-group">
+            <label for="vaccineDate">Vaccination Date:</label>
+            <input type="date" id="vaccineDate">
+        </div>
+        <div class="input-group">
+            <button onclick="addVaccineDate()">Add Vaccination Date</button>
+        </div>
+        <table id="vaccineTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Appointment Dates Section -->
+    <div class="section">
+        <h2>Appointment Dates</h2>
+        <div class="input-group">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" id="appointmentDate">
+        </div>
+        <div class="input-group">
+            <button onclick="addAppointmentDate()">Add Appointment Date</button>
+        </div>
+        <table id="appointmentTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Period Tracker Section -->
+    <div class="section">
+        <h2>Period Tracker</h2>
+        <div class="input-group">
+            <label for="lastPeriodDate">Last Period Date:</label>
+            <input type="date" id="lastPeriodDate">
+        </div>
+        <div class="input-group">
+            <button onclick="calculateNextPeriod()">Calculate Next Period Date</button>
+        </div>
+        <div class="input-group">
+            <label for="nextPeriodDate">Next Period Date:</label>
+            <input type="text" id="nextPeriodDate" readonly>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to calculate BMI
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value) / 100; // convert cm to meters
+
+        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+            alert('Please enter valid weight and height');
+            return;
+        }
+
+        const bmi = weight / (height * height);
+        document.getElementById('bmi').value = bmi.toFixed(2);
+    }
+
+    // Function to add vaccination date
+    function addVaccineDate() {
+        const date = document.getElementById('vaccineDate').value;
+        if (date) {
+            let dates = JSON.parse(localStorage.getItem('vaccineDates')) || [];
+            dates.push(date);
+            localStorage.setItem('vaccineDates', JSON.stringify(dates));
+            renderVaccineDates();
+        }
+    }
+
+    // Function to add appointment date
+    function addAppointmentDate() {
+        const date = document.getElementById('appointmentDate').value;
+        if (date) {
+            let dates = JSON.parse(localStorage.getItem('appointmentDates')) || [];
+            dates.push(date);
+            localStorage.setItem('appointmentDates', JSON.stringify(dates));
+            renderAppointmentDates();
+        }
+    }
+
+    // Function to render vaccination dates
+    function renderVaccineDates() {
+        const dates = JSON.parse(localStorage.getItem('vaccineDates')) || [];
+        const tableBody = document.getElementById('vaccineTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = '';
+        dates.forEach(date => {
+            const row = tableBody.insertRow();
+            const cell = row.insertCell(0);
+            cell.textContent = date;
+        });
+    }
+
+    // Function to render appointment dates
+    function renderAppointmentDates() {
+        const dates = JSON.parse(localStorage.getItem('appointmentDates')) || [];
+        const tableBody = document.getElementById('appointmentTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = '';
+        dates.forEach(date => {
+            const row = tableBody.insertRow();
+            const cell = row.insertCell(0);
+            cell.textContent = date;
+        });
+    }
+
+    // Function to calculate next period date
+    function calculateNextPeriod() {
+    const lastPeriodDate = document.getElementById('lastPeriodDate').value;
+    if (!lastPeriodDate) {
+        alert('Please enter the last period date');
+        return;
+    }
+
+    const averageCycleLength = 28; // Average cycle length in days
+    const lastPeriod = new Date(lastPeriodDate);
+    const nextPeriod = new Date(lastPeriod.getTime() + averageCycleLength * 24 * 60 * 60 * 1000);
+
+    const day = String(nextPeriod.getDate()).padStart(2, '0');
+    const month = String(nextPeriod.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = nextPeriod.getFullYear();
+
+    document.getElementById('nextPeriodDate').value = `${year}-${month}-${day}`;
+}
+
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+        renderVaccineDates();
+        renderAppointmentDates();
+    });
+</script>
+
+</body>
+</html>

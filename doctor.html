@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Doctor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f4fb;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+        tr:nth-child(odd) {
+            background-color: #cce6ff;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-container input {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Select a Doctor</h1>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search by name or specialty...">
+    </div>
+
+    <table id="doctorsTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cardiologists -->
+            <tr>
+                <td>Dr. Aditi Sharma</td>
+                <td>Cardiology</td>
+                <td>aditi.sharma@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Ravi Verma</td>
+                <td>Cardiology</td>
+                <td>ravi.verma@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Ritu Chawla</td>
+                <td>Cardiology</td>
+                <td>ritu.chawla@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Sanjay Kumar</td>
+                <td>Cardiology</td>
+                <td>sanjay.kumar@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Nidhi Jain</td>
+                <td>Cardiology</td>
+                <td>nidhi.jain@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Arjun Singh</td>
+                <td>Cardiology</td>
+                <td>arjun.singh@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Meera Desai</td>
+                <td>Cardiology</td>
+                <td>meera.desai@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Vikash Joshi</td>
+                <td>Cardiology</td>
+                <td>vikash.joshi@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Anil Kapoor</td>
+                <td>Cardiology</td>
+                <td>anil.kapoor@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Priya Khanna</td>
+                <td>Cardiology</td>
+                <td>priya.khanna@example.com</td>
+            </tr>
+            <!-- Neurologists -->
+            <tr>
+                <td>Dr. Vikram Singh</td>
+                <td>Neurology</td>
+                <td>vikram.singh@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Neha Reddy</td>
+                <td>Neurology</td>
+                <td>neha.reddy@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Arvind Patel</td>
+                <td>Neurology</td>
+                <td>arvind.patel@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Swati Gupta</td>
+                <td>Neurology</td>
+                <td>swati.gupta@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Rohit Sharma</td>
+                <td>Neurology</td>
+                <td>rohit.sharma@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Manisha Joshi</td>
+                <td>Neurology</td>
+                <td>manisha.joshi@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Ankit Mehta</td>
+                <td>Neurology</td>
+                <td>ankit.mehta@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Sangeeta Nair</td>
+                <td>Neurology</td>
+                <td>sangeeta.nair@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Vivek Deshmukh</td>
+                <td>Neurology</td>
+                <td>vivek.deshmukh@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Rakesh Kulkarni</td>
+                <td>Neurology</td>
+                <td>rakesh.kulkarni@example.com</td>
+            </tr>
+            <!-- Dermatologists -->
+            <tr>
+                <td>Dr. Rajesh Patel</td>
+                <td>Dermatology</td>
+                <td>rajesh.patel@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Sunita Rao</td>
+                <td>Dermatology</td>
+                <td>sunita.rao@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Alok Mishra</td>
+                <td>Dermatology</td>
+                <td>alok.mishra@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Kavita Singh</td>
+                <td>Dermatology</td>
+                <td>kavita.singh@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Vishal Aggarwal</td>
+                <td>Dermatology</td>
+                <td>vishal.aggarwal@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Smita Jain</td>
+                <td>Dermatology</td>
+                <td>smita.jain@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Suresh Reddy</td>
+                <td>Dermatology</td>
+                <td>suresh.reddy@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Anita Das</td>
+                <td>Dermatology</td>
+                <td>anita.das@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Pankaj Singh</td>
+                <td>Dermatology</td>
+                <td>pankaj.singh@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Meena Gupta</td>
+                <td>Dermatology</td>
+                <td>meena.gupta@example.com</td>
+            </tr>
+            <!-- Dentists -->
+            <tr>
+                <td>Dr. Arjun Khanna</td>
+                <td>Dentist</td>
+                <td>arjun.khanna@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Anjali Saxena</td>
+                <td>Dentist</td>
+                <td>anjali.saxena@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Sumit Verma</td>
+                <td>Dentist</td>
+                <td>sumit.verma@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Richa Yadav</td>
+                <td>Dentist</td>
+                <td>richa.yadav@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Naveen Kapoor</td>
+                <td>Dentist</td>
+                <td>naveen.kapoor@example.com</td>
+            </tr>
+            <tr>
+                <td>Dr. Preeti Sinha</td>
+                <td>Dentist</td>
+                <td>preeti.sinha@example.com</td>
